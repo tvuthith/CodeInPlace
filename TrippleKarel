@@ -1,0 +1,33 @@
+from karel.stanfordkarel import *
+
+# File: triple.py
+# -----------------------------
+# Write a program, using only karel featuers,
+# which solve the triple problem
+def main():
+   paint_building()
+   for i in range(2):
+      turn_around()
+      move()
+      paint_building()
+     
+def turn_right():
+   for i in range(3):
+      turn_left()
+      
+def turn_around():
+   for i in range(2):
+      turn_left()
+      
+def paint():
+   while left_is_blocked():
+      put_beeper()
+      move()
+      
+def paint_building():
+   for i in range(3):
+      paint()
+      turn_left()
+      move()
+   
+      
