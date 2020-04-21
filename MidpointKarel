@@ -1,0 +1,51 @@
+from karel.stanfordkarel import *
+
+# File: midpoint.py
+# -----------------------------
+# Write a program, using only karel featuers,
+# which allows Karel to put a beeper in the midpoint
+# of a world of any width.
+def main():
+   #while no_beepers_present():
+   if front_is_blocked():
+      put_beeper()
+   else:
+      put_beeper()
+      while front_is_clear():
+         move()
+      put_beeper()
+      while beepers_present():
+         turn_around()
+         move()
+         if front_is_clear():
+            move()
+            if no_beepers_present():
+               turn_around()
+               move()
+               put_beeper()
+               turn_around()
+               move()
+               while no_beepers_present():
+                  move()
+            else:
+               turn_around()
+               move()
+         else:
+            pick_beeper()
+      while front_is_clear():
+         move()
+      turn_around()
+      while front_is_clear():
+         if beepers_present():
+            pick_beeper()
+            move()
+         else:
+            put_beeper()
+            move()
+      pick_beeper()
+            
+
+def turn_around():
+   for i in range(2):
+      turn_left()
+   
