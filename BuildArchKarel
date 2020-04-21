@@ -1,0 +1,33 @@
+# This is an editor! Write your solution here.
+# Make karel create four columns of beepers
+def main():
+   build_column()
+   turn_right()
+   while front_is_clear():
+      to_another_column()
+      build_column()
+      turn_right()
+   
+def build_column():
+   turn_left()
+   for i in range(4):
+      if no_beepers_present():
+         put_beeper()
+         move()
+      else:
+         move()
+   if no_beepers_present():
+      put_beeper()
+   
+def to_another_column():
+   for i in range(3):
+      move()
+   turn_right()
+   for i in range(4):
+      move()
+   turn_left()
+   move()
+
+def turn_right():
+   for i in range(3):
+      turn_left()
